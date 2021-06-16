@@ -1,0 +1,191 @@
+:root {
+  --row_count: 3;
+}
+
+body {
+  background: #222222;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+#clock {
+  padding-top: 25px;
+  font-size: 36px;
+}
+
+#tool {
+  padding-top: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+#tool img {
+  width:32px;
+  height:32px;
+  border-radius:25px;
+}
+
+#container {
+  position: relative;
+  height: 100%;
+}
+
+#footer {
+  text-align: center;
+  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* opacity: 0; */
+}
+
+#quick {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 75px;
+}
+
+#preview {
+  padding-top: 5px;
+}
+
+#preview img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.grid-container a {
+  text-decoration: none;
+  outline: none;
+}
+
+.grid-container {
+  z-index: -1;
+  margin: auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 40%;
+  height: 55%;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.grid-item {
+  color: white;
+  background-color: black;
+  border: 2px solid #333333;
+  font-size: 15px;
+  text-align: center;
+}
+
+.grid-item img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.grid-item:hover {
+  border: 2px solid #777777;
+}
+
+.grid-item-blank {
+  background-color: inherit;
+  border: 2px solid #333333;
+  font-size: 15px;
+  text-align: center;
+  height: 30%;
+}
+
+.grid-item-blank:hover {
+  border: 2px solid #777777;
+}
+
+.grid-item-blank img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.tab {
+ overflow: hidden;
+ border: 1px solid #ccc;
+ background-color: #f1f1f1;
+
+ margin: auto;
+ position: absolute;
+ top: 16%;
+ left: 50%;
+ transform: translate(-50%, -50%)
+}
+
+.tab button {
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 10px 14px;
+}
+
+.tab button:hover {
+ background-color: #ddd;
+}
+
+.tab button.active {
+ background-color: #ccc;
+}
+
+.tabcontent {
+ display: none;
+ padding-top: 50px;
+}
+
+.modal {
+  color: rgb(0,0,0);
+  z-index:1;
+  display: none; /* Hidden by default */
+  margin: auto; /* Stay in place */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 30%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0,0); /* Fallback color */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=text] {
+  margin: auto;
+}

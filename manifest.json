@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Speed Dial",
+  "version": "1",
+  "description": "Speed Dial visual bookmark system",
+  "homepage_url": "https://github.com/bcaluneo/Speed-Dial",
+
+  "chrome_url_overrides" : {
+    "newtab": "newpage.html"
+  },
+
+  "background": {
+    "scripts": ["src/speeddial.js"]
+  },
+
+  "permissions": [
+    "browserSettings",
+    "activeTab",
+    "tabs"
+  ]
+}

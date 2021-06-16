@@ -1,0 +1,31 @@
+<!-- Copyright (C) 2020 Brendan Caluneo -->
+<html>
+<style>
+</style>
+
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+	<title>Speed Dial</title>
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="assets/newpage.css"/>
+</head>
+
+<body>
+	<div id="createModal" class="modal">
+		<div class="modal-content">
+			<span id="closeModal" class="close">&times;</span>
+				<label for="dialName">Dial Name:</label><br>
+				<input type="text" id="dialName" name="dialName"><br><br>
+				<label for="dialURL">Dial Website:</label><br>
+				<input type="text" id="dialURL" name="dialURL"><br><br>
+				<button id="createDial">Create</button>
+				<button id="cancelDial">Cancel</button>
+		</div>
+	</div>
+	<script src="src/html2canvas.js"></script>
+	<script type="module" src="src/speeddial.js"></script>
+</body>
+
+</html>
