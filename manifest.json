@@ -6,11 +6,15 @@
   "homepage_url": "https://github.com/bcaluneo/Speed-Dial",
 
   "chrome_url_overrides" : {
-    "newtab": "newpage.html"
+    "newtab": "index.html"
   },
 
-  "background": {
-    "scripts": ["src/speeddial.js"]
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "assets/button/page-16.png",
+      "32": "assets/button/page-32.png"
+    }
   },
 
   "permissions": [
