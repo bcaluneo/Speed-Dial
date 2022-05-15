@@ -1,3 +1,7 @@
+
+import * as Toolbar from "./toolbar";
+import * as Dial from "./dial";
+
 function setClock() {
   const today = new Date();
   let h:number = today.getHours();
@@ -35,6 +39,7 @@ function setClock() {
 
 async function main() {
   setClock();
+  Dial.createSpeedDial();
 }
 
 main();
