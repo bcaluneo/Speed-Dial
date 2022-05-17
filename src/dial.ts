@@ -1,5 +1,7 @@
 
 var dialCount:number = 0;
+var grid:HTMLDivElement = document.getElementById("grid") as HTMLDivElement;
+var dragged:HTMLAnchorElement;
 
 export function getLetterIndex(letter:string): number {
   var alpha:string = "abcdefghijklmnopqrstuvwxyz";
@@ -37,18 +39,58 @@ export function createDial(url:string, title:string, isAdd:boolean) {
   cell.className = "grid-item";
 
   if (!isAdd) {
-    cell.textContent = title;
+    cell.textContent = `Dial ${dialCount + 1}`;
     var color: [number, number, number] = getRandomColor();
     cell.style.backgroundColor = `rgba(${color[0]}, ${color[1]}, ${color[2]}, 1`;
+    cell.draggable = true;
+    link.addEventListener("dragstart", onDragDial);
+    link.appendChild(cell);
+    grid.replaceChild(link, grid.lastChild);
+    dialCount++;
+    createAddSiteDial();
   } else {
     cell.textContent = "Add a site";
+    cell.id = "add-site";
+    cell.addEventListener("click", addSiteOnClick);
+    grid.appendChild(cell);
   }
+}
 
-  link.appendChild(cell);
-  document.getElementById("grid").appendChild(link);
-  dialCount++;
+function addSiteOnClick() {
+  createDial("", "", false);
+}
+
+function onDragDial(event:DragEvent) {
+  event.dataTransfer.setData('text/plain', null);
+  dragged = event.target as HTMLAnchorElement;
+  document.getElementById("footer").style.visibility = "visible";
+}
+
+function createAddSiteDial() {
+  createDial("", "", true);
 }
 
 export function createSpeedDial() {
-  createDial("https://google.com", "", true);
+  createAddSiteDial();
+
+  document.addEventListener("dragend", function(event:DragEvent) {
+    event.preventDefault();
+    document.getElementById("footer").style.visibility = "hidden";
+  });
+
+  document.addEventListener("dragover", function(event:DragEvent) {
+      event.preventDefault();
+  }, false);
+
+  document.addEventListener("drop", function(event:DragEvent) {
+    event.preventDefault();
+    var div:HTMLDivElement = event.target as HTMLDivElement;
+    if (div.id == "dropzone") {
+      document.getElementById("footer").style.visibility = "hidden";
+      document.getElementById("grid").removeChild(dragged);
+      dialCount--;
+      if (dialCount == 8) createAddSiteDial();
+    }
+    console.log(div.id);
+  }, false);
 }
