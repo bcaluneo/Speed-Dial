@@ -39,7 +39,7 @@ export function createDial(url:string, title:string, isAdd:boolean) {
   cell.className = "grid-item";
 
   if (!isAdd) {
-    cell.textContent = `Dial ${dialCount + 1}`;
+    cell.textContent = title;
     var color: [number, number, number] = getRandomColor();
     cell.style.backgroundColor = `rgba(${color[0]}, ${color[1]}, ${color[2]}, 1`;
     cell.draggable = true;
@@ -57,7 +57,12 @@ export function createDial(url:string, title:string, isAdd:boolean) {
 }
 
 function addSiteOnClick() {
-  createDial("", "", false);
+  var url:string = prompt("Enter website url", "URL");
+  if (url == null) return;
+  var title:string = prompt("Enter dial title", "Title");
+  if (title == null) return;
+  if (!url.startsWith("https://")) url = "https://" + url;
+  createDial(url, title, false);
 }
 
 function onDragDial(event:DragEvent) {
